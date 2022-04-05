@@ -1,4 +1,6 @@
-﻿namespace Dungeon
+﻿using DungeonLibrary;
+
+namespace Dungeon
 {
     class Program
     {
