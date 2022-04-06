@@ -71,7 +71,7 @@ namespace DungeonLibrary
         public override string ToString()
         {
             return string.Format("{0}\t{1} to {2} Damage\n" +
-                "Bonus Hit: {3}%\n{5}",
+                "Bonus Hit: {3}%\n{4}",
                 Name,
                 MinDamage,
                 MaxDamage,
