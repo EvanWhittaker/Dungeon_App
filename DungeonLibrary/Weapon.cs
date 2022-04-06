@@ -14,6 +14,7 @@ namespace DungeonLibrary
         private string _name;
         private int _bonusHitChance;
         private bool _isTwoHanded;
+        private WeaponType _type;
 
         //PROPERTIES
         public int MaxDamage
@@ -53,8 +54,15 @@ namespace DungeonLibrary
             }
         }
 
+        public WeaponType Type
+        {
+            get { return _type; }
+            set { _type = value; }
+        }
+
         //CONSTRUCTORS
-        public Weapon(int minDamage, int maxDamage, string name, int bonusHitChance, bool isTwohanded)
+        public Weapon(int minDamage, int maxDamage, string name, int bonusHitChance, 
+            bool isTwohanded, WeaponType type)
         {
             //ANY properties with business rules based off of OTHER properties
             //MUST come AFTER those other properties are set. In this case, our 
@@ -71,11 +79,12 @@ namespace DungeonLibrary
         public override string ToString()
         {
             return string.Format("{0}\t{1} to {2} Damage\n" +
-                "Bonus Hit: {3}%\n{4}",
+                "Bonus Hit: {3}%\nType: {4}\t\t{5}",
                 Name,
                 MinDamage,
                 MaxDamage,
                 BonusHitChance,
+                Type,
                 IsTwoHanded ? "Two-Handed" : "One-Handed");
         }
     }
