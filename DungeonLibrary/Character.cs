@@ -1,6 +1,10 @@
 ﻿namespace DungeonLibrary
 {
-    public class Character
+    //The "abstract" modifier denotes this datatype class 
+    //is "incomplete" -- we don't intend to make any Character
+    //objects. Instead, we'll use Character as a base class 
+    //for more specific types (Player & Monster).
+    public abstract class Character
     {
         //FIELDS
         private int _life;
@@ -60,6 +64,8 @@
             Life = life;
         }
 
+        public Character() { }
+
         //METHODS
         public override string ToString()
         {
@@ -73,17 +79,19 @@
                 Block);
         }
 
-        public int CalcBlock()
+        //The "virtual" keyword is needed for methods
+        //we intend to override in child classes.
+        public virtual int CalcBlock()
         {
             return Block;
         }
 
-        public int CalcHitChance()
+        public virtual int CalcHitChance()
         {
             return HitChance;
         }
 
-        public int CalcDamage()
+        public virtual int CalcDamage()
         {
             return 0;
         }

@@ -15,6 +15,9 @@ namespace Dungeon
             #endregion
 
             //TODO: Create a Player object to track info/stats
+            Weapon longSword = new Weapon(1, 8, "Long Sword", 10, false, WeaponType.Sword);
+
+            Player player = new Player("Leeroy Jenkins", 70, 5, 40, 40, Race.Human, longSword);
 
             #region Main Game Loop
 
@@ -27,6 +30,38 @@ namespace Dungeon
                 Console.WriteLine(GetRoom());
 
                 //TODO Select a Monster (at random) for the player to encounter
+                #region Monster Objects
+
+                Rabbit rabbit = new Rabbit("White Rabbit", 25, 25, 50, 20, 2, 8, 
+                    "That's no ordinary rabbit! Look at the bones!", true);
+
+                Rabbit babyRabbit = new Rabbit();
+
+                Vampire vampire = new Vampire("Dracula", 25, 30, 70, 8, 1, 8, "The father of all undead.");
+
+                Turtle turtle = new Turtle("Mikey", 17, 25, 50, 10, 1, 4, 
+                    "He's no longer a teenager, but he's still a mutant turtle.", 3, 10);
+
+                Dragon dragon = new Dragon("Smaug", 10, 20, 65, 20, 1, 15, "The last great dragon.", true);
+
+                Dragon babyDragon = new Dragon();
+
+                #endregion
+
+                #region Monster Selection
+
+                //Add the monsters to a collection
+                Monster[] monsters = { rabbit, turtle, vampire, dragon };
+
+                //Pick one at random to place in the room
+                Random rand = new Random();
+                int randomNbr = rand.Next(monsters.Length);
+                Monster monster = monsters[randomNbr];
+
+                //Output
+                Console.WriteLine("\nIn this room you encounter: " + monster.Name);
+
+                #endregion
 
                 #region Gameplay Menu Loop
 
