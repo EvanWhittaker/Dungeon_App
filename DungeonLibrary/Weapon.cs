@@ -73,6 +73,7 @@ namespace DungeonLibrary
             Name = name;
             BonusHitChance = bonusHitChance;
             IsTwoHanded = isTwohanded;
+            Type = type;
         }
 
         //METHODS
