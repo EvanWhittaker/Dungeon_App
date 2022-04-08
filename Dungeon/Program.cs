@@ -14,8 +14,33 @@ namespace Dungeon
 
             #endregion
 
+            //TODO Create a variable to track the score
+            int score = 0;
+
             //TODO: Create a Player object to track info/stats
             Weapon longSword = new Weapon(1, 8, "Long Sword", 10, false, WeaponType.Sword);
+
+            //Possible Expansion:
+            //Character Creation / Name Selection
+            //Console.Write("Enter your name: ");
+            //string userName = Console.ReadLine();
+            //Console.WriteLine("Welcome, {0}!", userName);
+            //
+            //Console.WriteLine("Choose a race: H) Human\nE) Elf\nO) Orc...");
+            //string userRaceChoice = Console.ReadLine().ToUpper();
+            //
+            //Race playerRace = new Race();
+            //
+            //switch (userRaceChoice)
+            //{
+            //    case "H":
+            //        playerRace = Race.Human;
+            //        break;
+            //
+            //    default:
+            //        break;
+            //}
+            //Player player = new Player(userName, 70, 5, 40, 40, playerRace, longSword);
 
             Player player = new Player("Leeroy Jenkins", 70, 5, 40, 40, Race.Human, longSword);
 
@@ -27,6 +52,7 @@ namespace Dungeon
             //Create the main loop
             do
             {
+                //TODO Generate a random room
                 Console.WriteLine(GetRoom());
 
                 //TODO Select a Monster (at random) for the player to encounter
@@ -104,13 +130,14 @@ namespace Dungeon
                             break;
 
                         case ConsoleKey.P:
-                            Console.WriteLine("Player info");
                             //TODO Player info
+                            Console.WriteLine(player);
+                            Console.WriteLine("Monsters defeated: " + score);
                             break;
 
                         case ConsoleKey.M:
-                            Console.WriteLine("Monster info");
                             //TODO Monster info
+                            Console.WriteLine(monster);
                             break;
 
                         //Allows the user to exit if they hit X OR E
@@ -140,6 +167,10 @@ namespace Dungeon
             } while (!exit); //Condition for loop - While exit is NOT true, keep looping
 
             #endregion
+
+            //Output the final score
+            Console.WriteLine("You defeated " + score + " monster" + 
+                ((score == 1) ? "." : "s."));
 
         }//end Main()
 

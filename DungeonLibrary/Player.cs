@@ -58,7 +58,7 @@ namespace DungeonLibrary
                     description = "Halfling";
                     break;
                 case Race.Tabaxi:
-                    description = "Tabaxi";
+                    description = "An agile and clever catperson from the swamps of Jordel.";
                     break;
                 case Race.Dwarf:
                     description = "Dwarf";
@@ -79,7 +79,8 @@ namespace DungeonLibrary
                 Life,
                 MaxLife,
                 HitChance,
-                CalcHitChance(),
+                //CalcHitChance(),
+                EquippedWeapon,
                 Block,
                 description);
         }
