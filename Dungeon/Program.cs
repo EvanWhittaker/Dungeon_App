@@ -20,6 +20,8 @@ namespace Dungeon
             //TODO: Create a Player object to track info/stats
             Weapon longSword = new Weapon(1, 8, "Long Sword", 10, false, WeaponType.Sword);
 
+            #region Possible Expansion - Character Creation/Customization
+
             //Possible Expansion:
             //Character Creation / Name Selection
             //Console.Write("Enter your name: ");
@@ -41,6 +43,8 @@ namespace Dungeon
             //        break;
             //}
             //Player player = new Player(userName, 70, 5, 40, 40, playerRace, longSword);
+
+            #endregion
 
             Player player = new Player("Leeroy Jenkins", 70, 5, 40, 40, Race.Human, longSword);
 
