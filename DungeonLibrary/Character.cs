@@ -2,8 +2,8 @@
 {
     //The "abstract" modifier denotes this datatype class 
     //is "incomplete" -- we don't intend to make any Character
-    //objects. Instead, we'll use Character as a base class 
-    //for more specific types (Player & Monster).
+    //objects. Instead, we'll use Character solely as a base 
+    //class for more specific types (Player & Monster).
     public abstract class Character
     {
         //FIELDS
