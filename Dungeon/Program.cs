@@ -120,13 +120,43 @@ namespace Dungeon
                     {
 
                         case ConsoleKey.A:
-                            Console.WriteLine("Combat");
                             //TODO Combat
+                            Combat.DoBattle(player, monster);
+
+                            //Check if the monster is dead
+                            if (monster.Life <= 0)
+                            {
+                                //Use green text to highlight winning combat
+                                Console.ForegroundColor = ConsoleColor.Green;
+
+                                //Output the result
+                                Console.WriteLine("\nYou killed {0}!\n", monster.Name);
+
+                                //Reset the color
+                                Console.ResetColor();
+
+                                //Update the score
+                                score++;
+
+                                //Flip the reload bool to exit the current menu
+                                //loop so we can get a new room & monster
+                                reload = true;
+                            }
+
                             break;
 
                         case ConsoleKey.R:
-                            Console.WriteLine("Run away");
                             //TODO Run away
+                            Console.WriteLine($"{monster.Name} attacks you as you flee!");
+                            Combat.DoAttack(monster, player);
+
+                            //Formatting
+                            Console.WriteLine();
+
+                            //Flip the reload bool to exit the current menu
+                            //and get a new room & monster
+                            reload = true;
+
                             break;
 
                         case ConsoleKey.P:
@@ -157,6 +187,15 @@ namespace Dungeon
                     }
 
                     #endregion
+
+                    //Check the Player's life
+                    if (player.Life <= 0)
+                    {
+                        Console.WriteLine("You have been defeated by {0}!", monster.Name);
+
+                        //Flip the exit bool to end the game
+                        exit = true;
+                    }
 
 
                 } while (!exit && !reload); //Condition - while exit AND reload are NOT true, keep looping
